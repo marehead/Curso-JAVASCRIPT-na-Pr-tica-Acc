@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				//Display or hide the matched elements. -> .toggle( [duration ] [, complete ] )
+			  $("button").click(function(){
+					$("p").toggle(1000, () => alert("terminou"));			
+			  });
+			});
+		</script>
+	</head>
+	<body>
+
+		<button>Alternando entre esconder e exibir os paragrafos</button>
+
+		<p>Esta paragrafo possui um conteúdo pequeno.</p>
+		<br/>
+		<p>Este é mais um.</p>
+
+	</body>
+</html>

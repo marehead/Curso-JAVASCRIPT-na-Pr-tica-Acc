@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+  <p id="textCopy"></p>
+  <p id="fieldText">p innerHTML</p>
+  <p id="fieldText2">p innerText</p>
+  <p id="fieldText3">p innerHTML with sanitized value</p>
+  <p id="fieldText4">p append</p>
+  <p id="fieldText5">p append(fragment)</p>
+  <p id="fieldText6">p append(ContextualFragment)</p>
+  
+  <input id="inputText" placeholder="innerHTML" type="text">
+  <button onclick="myFunction()">Click</button>
+  <br><br>
+  <input id="inputText2" placeholder="innerText" type="text">
+  <button onclick="myFunction2()">Click</button>
+  <br><br>
+  <input id="inputText3" placeholder="innerHTML with sanitized value" type="text">
+  <button onclick="myFunction3()">Click</button>
+  <br><br>
+  <input id="inputText4" placeholder="append" type="text">
+  <button onclick="myFunction4()">Click</button>
+  <br><br>
+  <input id="inputText5" placeholder="append(fragment)" type="text">
+  <button onclick="myFunction5()">Click</button>
+  <br><br>
+  <input id="inputText6" placeholder="append(ContextualFragment)" type="text">
+  <button onclick="myFunction6()">Click</button>
+
+  <!--<img src="1" onerror="alert('hacked')">-->
+
+  <script>
+    document.getElementById("textCopy").textContent = `Copy: <img src="1" onerror="alert('hacked')">`
+
+    function myFunction() {
+      const inputElement = document.getElementById('inputText');
+      const pElement = document.getElementById('fieldText');
+      pElement.innerHTML =  inputElement.value; //bad
+    }
+
+    function myFunction2() {
+      const inputElement = document.getElementById('inputText2');
+      const pElement = document.getElementById('fieldText2');
+      pElement.innerText =  inputElement.value; //good
+    }
+
+    function myFunction3() {
+      const inputElement = document.getElementById('inputText3');
+      const pElement = document.getElementById('fieldText3');
+      let cleanValue = sanitizeInput(inputElement.value);
+      pElement.innerHTML =  cleanValue; //good -> sanitized value
+      console.log('pElement.innerHTML:', pElement.innerHTML)
+    }
+
+    function myFunction4() {
+      const inputElement = document.getElementById('inputText4');
+      const pElement = document.getElementById('fieldText4');
+      //let cleanValue = sanitizeInput(inputElement.value); //no need
+      pElement.replaceChildren();//limpa td
+      pElement.append(inputElement.value) //good -> with append
+    }
+
+    function myFunction5() {
+      const inputElement = document.getElementById('inputText5');
+      const pElement = document.getElementById('fieldText5');
+      //let cleanValue = sanitizeInput(inputElement.value); //no need
+      const fragment = document.createDocumentFragment();
+
+      fragment.append(inputElement.value)
+
+      pElement.replaceChildren();
+      pElement.append(fragment) //good -> with append
+    }
+
+    function myFunction6() {
+      const inputElement = document.getElementById('inputText6');
+      const pElement = document.getElementById('fieldText6');
+      
+      const fragment = 
+        document
+        .createRange()
+        .createContextualFragment(inputElement.value);
+      
+      pElement.replaceChildren();
+      
+      pElement.append(fragment);//good -> with append
+    }
+
+    function sanitizeInput(inputValue) {
+      const divElement = document.createElement('div');
+      divElement.textContent = inputValue;
+      console.log(divElement);
+      console.log(divElement.innerHTML);//&lt;img src="1" onerror="alert('error!!')"&gt;
+      console.log(divElement.innerText);//<img src="1" onerror="alert('error!!')">
+      console.log(divElement.textContent);//<img src="1" onerror="alert('error!!')">
+      return divElement.innerHTML;
+    }
+  </script>
+</body>
+</html>

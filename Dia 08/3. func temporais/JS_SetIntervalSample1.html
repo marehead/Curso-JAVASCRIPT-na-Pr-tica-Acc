@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Título</title>
+		<meta charset="utf-8">
+		<script language="javascript">
+				var myVar;
+
+				function myFunction() {
+				  //myVar = setInterval(alertFunc, 3000);//repete
+					myVar = setTimeout(alertFunc, 3000);//apenas uma vez
+				}
+
+				function alertFunc() {
+				  alert("Hello!");
+				}
+				
+		</script>
+	</head>
+    <body onload="myFunction();">
+
+	</body>
+</html>

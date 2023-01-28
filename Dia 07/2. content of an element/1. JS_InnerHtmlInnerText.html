@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<body>
+
+		<p id="demo" onclick="myFunction()">Click me to change my HTML content (innerHTML) and Text content (innerText).</p>
+		<div id="mensg">ddasd</div>
+
+		<div id="mensg2">ddasd</div>
+		<div id="mensg3">ddasd</div>
+
+		<div id="container">Não tem nada</div>
+
+		<ul id="containerDinamico">Não tem nada</ul>
+		<ul id="containerDinamico2">Não tem nada</ul>
+		<input type="text">
+		<script>
+			function myFunction() {
+
+				document.getElementById("demo").innerHTML = "Paragraph changed!";
+				document.getElementById("mensg").innerHTML = "<h2>Olá!!!</h2>";
+
+				document.getElementById("mensg2").innerText = "Paragraph mensg2 changed!";
+				document.getElementById("mensg3").innerText = "<h2>Oá!!! mensg3</h2>";
+
+				document.getElementById("container").innerHTML = "<p>Oá!!! <b>Mundo</b></p>";
+
+				const arrayProdutos = [
+					{
+						price: 15500,
+						name: 'Mac Book',
+					},
+					{
+						price: 10000,
+						name: 'iPhone 14 Pro Max',
+					},
+					{
+						price: 4500,
+						name: 'Galaxy S22 Ultra',
+					}
+				]
+
+				let arrayList1 = arrayProdutos.map((product) => `<li>${product.name} (R$${product.price.toFixed(2)})</li>`)
+
+				document.getElementById("containerDinamico").innerHTML = 
+					arrayList1.join('');			
+					
+				// arrayList1 ---> [
+				// '<li>Mac Book (R$ 15500,00)</li>', //0
+				// '<li>iPhone 14 Pro Max (R$ 10000,00)</li>',//1
+				// '<li>Galaxy S22 Ultra (R$ 4500,00)</li>'//2
+				// ]
+				// arrayList1.join('') ---> `
+				// <li>Mac Book (R$ 15500,00)</li>
+				// <li>iPhone 14 Pro Max (R$ 10000,00)</li>
+				// <li>Galaxy S22 Ultra (R$ 4500,00)</li>
+				// `
+				
+				document.getElementById("containerDinamico2").innerText = 
+					arrayProdutos.map(item => `<li>${item.name} (R$${item.price.toFixed(2)})</li>`).join('');				
+			}
+		</script>
+
+	</body>
+</html> 

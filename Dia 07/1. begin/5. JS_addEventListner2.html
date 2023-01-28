@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>Event!!!</title>
+		<style>
+			p {
+				font-size:50px;/*Kebab case*/
+				position: fixed;
+				left: 550px;
+				top: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="hover">Welcome!!!</p>
+
+		<script type="text/javascript">
+			let pElement = document.getElementById("hover");
+			//pElement.addEventListener("mouseout", () => myAlert());
+			//pElement.addEventListener("mouseout", myAlert);
+			//pElement.addEventListener("mouseover", myAlert);
+			pElement.addEventListener("click", myAlert);
+			function myAlert(){
+				alert("Welcome to my WebPage!!!");
+			}
+		</script>
+	</body>
+</html>

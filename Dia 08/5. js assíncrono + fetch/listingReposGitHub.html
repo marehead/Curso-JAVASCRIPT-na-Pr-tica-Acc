@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Algoritmos e Lógica de Programação</title>
+  </head>
+  <body>
+    <h2>Programando JavaScript</h2>
+    <ul id="lista"></ul>
+
+    <script>
+      async function start() {
+        const minhaUrl = "https://api.github.com/users/ManoelPradoMark22/repos";
+        const userRepos = await fetch(minhaUrl).then(response => response.json());//.json()
+        console.log(userRepos);
+        document.getElementById('lista').innerHTML = userRepos.map(repoObj => `
+          <li>
+            Nome: ${repoObj.name} | <a href="${repoObj.svn_url}">repoLink</a>
+          </li>
+        `).join('');
+      }
+      start().catch(err => alert('Erro na requisição! ' + err.message));
+    </script>
+  </body>
+</html>

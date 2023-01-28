@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+  <div id="divExemplo">
+    <h3>Titulo Exemplo</h3>
+  </div>
+
+  <p onclick="myFunction()">innerHTML</p>
+  <div id="divContainer" ></div>
+  <p onclick="myFunction2()">innerText</p>
+  <div id="divContainer2"></div>
+  <p onclick="myFunction3()">textContent</p>
+  <div id="divContainer3"></div>
+  <p onclick="myFunction4()">append</p>
+  <div id="divContainer4"></div>
+  <p onclick="myFunction5()">append(fragment)</p>
+  <div id="divContainer5"></div>
+  <p onclick="myFunction6()">append(ContextualFragment)</p>
+  <div id="divContainer6"></div>
+
+  <script>
+    function myFunction() {
+      const divElement = document.getElementById('divContainer');
+      let divEl = document.createElement('div')
+      let h1El =  document.createElement('h1')
+      let buttonEl = document.createElement('button')
+
+      h1El.textContent = "Olá Mundo"
+      buttonEl.textContent = "Click!"
+
+      divEl.append(h1El, buttonEl)
+
+      divElement.innerHTML =  divEl;
+      //divElement.innerHTML =  document.getElementById('divExemplo');
+    }
+
+    function myFunction2() {
+      const divElement = document.getElementById('divContainer2');
+      let divEl = document.createElement('div')
+      let h1El =  document.createElement('h1')
+      let buttonEl = document.createElement('button')
+
+      h1El.textContent = "Olá Mundo"
+      buttonEl.textContent = "Click!"
+
+      divEl.append(h1El, buttonEl);
+
+      divElement.innerText =  divEl;
+      //divElement.innerText =  document.getElementById('divExemplo');
+    }
+
+    function myFunction3() {
+      const divElement = document.getElementById('divContainer3');
+      let divEl = document.createElement('div')
+      let h1El =  document.createElement('h1')
+      let buttonEl = document.createElement('button')
+
+      h1El.textContent = "Olá Mundo"
+      buttonEl.textContent = "Click!"
+
+      divEl.append(h1El, buttonEl)
+
+      divElement.textContent = divEl;
+      //divElement.textContent = document.getElementById('divExemplo');
+    }
+
+    function myFunction4() {
+      const divElement = document.getElementById('divContainer4');
+
+      let h1El =  document.createElement('h1')
+      let buttonEl = document.createElement('button')
+
+      h1El.textContent = "Olá Mundo"
+      buttonEl.textContent = "Click!"
+
+      divElement.replaceChildren();
+      divElement.append(h1El, buttonEl)
+      //divElement.append(document.getElementById('divExemplo'))
+    }
+
+    function myFunction5() {
+      const divElement = document.getElementById('divContainer5');
+      const fragment = document.createDocumentFragment();
+
+      let h1El =  document.createElement('h1')
+      let buttonEl = document.createElement('button')
+
+      h1El.textContent = "Olá Mundo"
+      buttonEl.textContent = "Click!"
+
+      fragment.append(h1El, buttonEl)
+      
+      divElement.replaceChildren();
+      divElement.append(fragment);
+    }
+
+    function myFunction6() {
+      const divElement = document.getElementById('divContainer6');
+
+      let h1El =  document.createElement('h1')
+      let buttonEl = document.createElement('button')
+
+      h1El.textContent = "Olá Mundo"
+      buttonEl.textContent = "Click!"
+
+      const fragment = 
+        document
+        .createRange()
+        .createContextualFragment(h1El, buttonEl);
+      
+      divElement.replaceChildren();
+      divElement.append(fragment);
+    }
+  </script>
+</body>
+</html>

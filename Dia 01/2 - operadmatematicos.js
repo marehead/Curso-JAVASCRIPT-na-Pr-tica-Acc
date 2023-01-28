@@ -1,0 +1,18 @@
+let numero1 = 10;
+let numero2 = 5;
+
+console.log("Adição: " + (numero1+numero2));
+console.log("Subtração: " + (numero1-numero2));
+console.log("Multiplicação: " +  (numero1*numero2));
+console.log("Divisão: " + (numero1/numero2));
+console.log("Potenciação: " + (numero1**numero2));
+console.log("Resto da divisão: " + (numero1%numero2));
+console.log("Divisão (fixando nº de casas decimais após a vírgula): " + (numero1/numero2).toFixed(2));
+
+console.log(6789+"0");
+console.log(6789+123);
+console.log("Olá " + "mundo");
+console.log(200-58);
+console.log(2*245);
+console.log(6789/3);
+console.log(6789**2);

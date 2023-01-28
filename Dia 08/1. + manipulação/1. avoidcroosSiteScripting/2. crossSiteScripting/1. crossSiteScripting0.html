@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <span id="spanMsg">Hello <span style="display: none;">World</span></span>
+
+  <script>
+    const divElement = document.createElement('div');
+    let text = `<img src="1" onerror="alert('hacked')">`;
+    divElement.textContent = text;
+    console.log(`divElement:`);
+    console.log(divElement)
+    console.log(`divElement.innerHTML: ${divElement.innerHTML}`);
+    console.log(`divElement.innerText: ${divElement.innerText}`);
+    console.log(`divElement.textContent: ${divElement.textContent}`);
+  </script>
+</body>
+</html>

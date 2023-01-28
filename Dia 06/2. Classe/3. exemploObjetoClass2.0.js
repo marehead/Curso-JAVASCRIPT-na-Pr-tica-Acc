@@ -1,0 +1,58 @@
+class Conta{
+  constructor(titular) {
+    this.titular = titular;
+    this.saldo = 0;
+  }
+
+  verSaldo() {
+    console.log("Saldo: " + this.saldo);
+  }
+
+  depositar(valor) {
+    this.saldo += valor;
+  }
+
+  sacar(valor) {
+    this.saldo -= valor;
+  }
+
+  transferir(outraConta, valor) {
+    this.sacar(valor);
+    outraConta.depositar(valor)
+  }
+}
+
+class Teste extends Conta {
+  speak(){
+    this.verSaldo();
+    console.log("Money");
+  }
+}
+
+var c1 = new Conta("Pedro");
+var c2 = new Conta("Maria");
+
+console.log('c1.depositar(100):');
+c1.depositar(100);
+console.log('c2.depositar(50):');
+c2.depositar(50);
+console.log('c1.transferir(c2, 60):');
+c1.transferir(c2, 60);
+
+console.log('c1: ' + c1.titular + " - R$" + c1.saldo);
+console.log('c2: ' + c2.titular + " - R$" + c2.saldo);
+
+var teste1 = new Teste("Paulo");
+console.log('teste1:', teste1.titular);
+console.log('teste1.depositar(1000):');
+teste1.depositar(1000);
+console.log('teste1.transferir(c1, 500):');
+teste1.transferir(c1, 500);
+console.log('teste1.sacar(200):');
+teste1.sacar(200);
+console.log('teste1.speak():')
+teste1.speak();
+console.log('---------')
+console.log('c1.saldo:', c1.saldo);
+console.log('c2.saldo:', c2.saldo);
+console.log('teste1.saldo:', teste1.saldo);

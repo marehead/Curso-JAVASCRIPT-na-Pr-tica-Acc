@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<body>
+
+		<h2>JavaScript Errors</h2>
+
+		<p>Async Await</p>
+		<p id="demo"></p>
+		<p id="demo1"></p>
+		<p id="demo2"></p>
+		<p id="demo3"></p>
+
+
+		<script>			
+			//Promisse - É uma classe que permite a construção de funções de processamento assíncrono representando um valor que poderá estar disponível no futuro.
+			//Um Promise (de "promessa") representa um valor que pode estar disponível agora, no futuro ou nunca.
+			function resolveAfter2Seconds(x) {
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						resolve(x*2);
+					}, 2000);
+				});
+			}
+
+			async function f1() {
+				let x = await resolveAfter2Seconds(10);
+				//o código aguarda a resposta do async await, para depois continuar o código
+				document.getElementById("demo").innerText = x;	
+				document.getElementById("demo1").innerText = "Olá, dentro";
+			}
+			
+			f1();
+			document.getElementById("demo2").innerText = "Olá, fora";
+			document.getElementById("demo3").innerText = "Olá, fora 2x";
+		</script>
+
+	</body>
+</html>

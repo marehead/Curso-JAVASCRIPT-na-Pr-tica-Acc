@@ -1,0 +1,299 @@
+:root{
+  --yellow:#F7CA3E;
+}
+
+#back2Top { 
+  width: 40px; 
+  line-height: 40px; 
+  overflow: hidden; 
+  z-index: 999; 
+  display: none; 
+  border-radius: 50%;
+  cursor: pointer; 
+  -moz-transform: rotate(270deg); 
+  -webkit-transform: rotate(270deg); 
+  -o-transform: rotate(270deg); 
+  -ms-transform: rotate(270deg); 
+  transform: rotate(270deg); 
+  position: fixed; 
+  bottom: 10px; 
+  left: 10px; 
+  background-color: red; 
+  color: #555; 
+  text-align: center; 
+  font-size: 30px; 
+  text-decoration: none; 
+}
+  
+#back2Top:hover { 
+  background-color : #DDF; 
+  color: #000; 
+  box-shadow: 0 .5rem 0.5rem rgba(0,0,0,.5);
+}
+
+.bagDiv {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+
+
+  position: fixed;
+  z-index: 1;
+  right: 10px;
+  bottom: 10px;
+}
+
+.bagDiv:hover {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.5);
+}
+
+.insideBagDiv {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: var(--yellow);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+
+  position: relative;
+}
+
+.bagDiv .insideBagDiv span {
+  font-size: 20px;
+}
+
+.badgeCountItens{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: black;
+  height:1.2rem;
+  width:1.2rem;
+  text-align: center;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+  user-select: none;
+  font-size: 1rem;
+  border-radius: 50%;
+  color:var(--yellow);
+  border:1px solid var(--yellow);
+}
+
+.producstOnCart {
+  overflow: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+  background-color: #fff;
+  border-radius: 8px 8px 0 0;
+  width: 90%;
+  max-height: 80%;
+  color: #000;
+  z-index: 1000;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+}
+
+@media (min-width: 400px) {
+  .producstOnCart {
+    width: 300px;
+  }
+}
+
+.producstOnCart::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.hide {
+  display: none;
+}
+
+.producstOnCart ul {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: .5rem;
+}
+
+.producstOnCart .buyItem {
+  border-bottom: #aaa 1px solid;
+  width: 90%;
+  padding: 10px 0;
+  display: flex;
+}
+
+.producstOnCart img {
+  max-width: 90px;
+  max-height: 75px;
+  border-radius: 4px;
+}
+
+.producstOnCart .top {
+  display: flex;
+  background-color: var(--yellow);
+  text-align: center;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 .3rem 2rem rgba(0,0,0,.1);
+  align-items: center;
+}
+
+.top button {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  margin-left: 10px;
+  color: #c24c37;
+  cursor: pointer;
+}
+
+.top button:hover {
+  color: #e40505;
+}
+
+.top h3 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}
+
+.top #cartSumTotal {
+  position: absolute;
+  right: 1rem;
+  font-size: 1.2rem;
+  color:#666;
+}
+
+.top #cartSumTotal span{
+  margin-right: .2rem;
+  font-weight: bold;
+  color: #c24c37;
+}
+
+.top #cartSumTotal span:hover{
+  color: #e40505;
+  cursor: pointer;
+}
+
+#catLanches{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: auto;
+}
+#catLanches .containerProd{
+  display: flex;
+  flex-direction: row;
+  margin:2rem;
+  padding:2rem;
+  border-radius: 1rem;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+}
+
+/*corrigir*/
+#catLanches .image{
+  padding:2rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+#catLanches .image img{
+  width:250px;
+  height: 250px;
+  border-radius: 1rem;
+}
+
+#catLanches .content{
+
+}
+
+#catLanches .content .info{
+  padding:1rem 0;
+}
+
+#catLanches .content .info h3{
+  display: flex;
+  align-items: center;
+  font-size: 2.4rem;
+  color:#333;
+}
+
+#catLanches .content .info h3 span{
+  padding-right: 1rem;
+  color:var(--yellow);
+}
+
+#catLanches .content .info p{
+  padding:0.5rem 0;
+  padding-left: 4.5rem;
+  font-size: 1.5rem;
+  color:#666;
+}
+
+#catLanches .content .info .priceCatalog{
+  padding:0.5rem 0;
+  padding-left: 4.5rem;
+  font-size: 2rem;
+  color:#666;
+}
+
+#catLanches .btnCart {
+  margin-left: 4.5rem;
+    
+    color: #141414;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.8rem;
+    user-select: none;
+}
+
+.btnCart-small {
+  border: none;
+  font-size: 0.8rem;
+  padding: 0.4rem;
+  background-color: var(--yellow);
+  box-shadow: 2px 2px 2px rgba(0,0,0,.2);
+  color: black;
+  cursor: pointer;
+}
+
+.btnConfirmShop{
+  font-size: 0.8rem;
+  padding:.7rem 4rem;
+  border-radius: 5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  background:none;
+  color:#333; 
+  cursor: pointer;
+  user-select: none;
+  border:.2rem solid var(--yellow);
+}
+
+.btnConfirmShop:hover{
+  background:var(--yellow);
+}
+
+.hidden {
+  display: none;
+}

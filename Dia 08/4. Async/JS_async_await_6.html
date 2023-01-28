@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<body>
+
+		<h2>JavaScript Errors</h2>
+
+		<h3>Async Await</h3>
+
+		<p id="demo"></p>
+		<p id="demo1"></p>
+		<p id="demo2"></p>
+
+		<script>			
+			const promessa = new Promise((resolve, reject) => {
+				resolve("retorno");
+				//ou reject("erro")
+			});
+
+			async function start() {
+				try{
+					const result = await promessa;
+					document.getElementById("demo").innerText = result;
+				}catch(err) {
+					document.getElementById("demo1").innerText = err;
+				}finally {
+					document.getElementById("demo2").innerText = "Finally";
+				}
+			}
+
+			start();
+		</script>
+
+	</body>
+</html>

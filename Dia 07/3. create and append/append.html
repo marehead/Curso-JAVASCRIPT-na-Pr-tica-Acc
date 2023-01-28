@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <span id="spanMsg">Hello <span>World</span></span>
+
+  <script>
+    const divElement = document.createElement('div');
+    divElement.textContent = "Olá ";
+    const bElement = document.createElement('b');
+    bElement.textContent = "Mundo";
+    divElement.append(bElement)
+
+    const divElement2 = document.createElement('div');
+    let text2 = "Olá ";
+    divElement2.textContent = text2;
+    const bElement1 = document.createElement('b');
+    bElement1.textContent = "Mundo 2";
+    divElement2.append(bElement1)
+
+    document.body.append(divElement);//Node object
+    document.body.appendChild(divElement2);//Node object
+
+    document.body.append("Fim");//text
+    //document.body.appendChild("Fim");//text -> error when using appendChild
+
+    document.body.append("<b>FIM!</b>");//text
+    //document.body.appendChild("<b>FIM!</b>");//text -> error when using appendChild
+
+    //https://dev.to/ibn_abubakre/append-vs-appendchild-a4m
+  </script>
+
+  <!-- <div>
+    Olá
+    <b>Mundo</b>
+  </div>
+
+  <div>
+    Olá
+    <b>Mundo2</b>
+  </div> -->
+</body>
+</html>

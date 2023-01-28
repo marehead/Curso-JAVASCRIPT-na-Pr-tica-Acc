@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <span id="spanMsg">Hello <span id="spanInside" style="display: none;">World</span></span>
+  
+  <div id="div1"><input type="text" placeholder="exemplo" value="exemplo"></div>
+  
+  <div id="div2">
+    <ul>
+      <h1>Minha lista</h1>
+      <li>"item 1"</li>
+      <li>"item 2"</li>
+      <li>"item 3"</li>
+    </ul>
+  </div>
+
+  <script>
+    const spanEl = document.getElementById('spanMsg');
+    const divEl = document.getElementById('div1');
+    const divEl2 = document.getElementById('div2');
+
+    console.log('spanEl:')
+    console.log(`textContent: ${spanEl.textContent}`);
+    console.log(`innerText: ${spanEl.innerText}`);
+    console.log(`innerHTML: ${spanEl.innerHTML}`);
+
+    console.log('divEl:')
+    console.log(`textContent: ${divEl.textContent}`);
+    console.log(`innerText: ${divEl.innerText}`);
+    console.log(`innerHTML: ${divEl.innerHTML}`);
+
+    console.log('divEl2:')
+    console.log(`textContent: ${divEl2.textContent}`);
+    console.log(`innerText: ${divEl2.innerText}`);
+    console.log(`innerHTML: ${divEl2.innerHTML}`);
+  </script>
+</body>
+</html>

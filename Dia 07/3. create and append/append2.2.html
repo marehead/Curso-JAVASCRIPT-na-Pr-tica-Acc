@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <span id="spanMsg">Hello <span style="display: none;">World</span></span>
+
+  <div id="content">
+    conteúdo antigo
+  </div>
+
+  <script>
+    const divElement = document.createElement('div');
+    let text = "Olá Mundo";
+    divElement.textContent = text;
+
+    // <div>
+    //   "Olá Mundo";
+    // </div>
+
+    const divElement2 = document.createElement('div');
+    let text2 = "Olá Mundo 2";
+    divElement2.textContent = text2;
+
+    // <div>
+    //   "Olá Mundo 2";
+    // </div>
+
+    const divContentEl = document.getElementById('content');
+    
+    divContentEl.replaceChildren();//ou: divContentEl.innerHTML = ''
+    divContentEl.append(divElement, divElement2);
+
+  </script>
+</body>
+</html>

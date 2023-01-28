@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="divId0">
+    <span>Olá <b>Mundo!</b></span>
+  </div>
+
+  <div id="divId1">
+  </div>
+
+  <div id="divId2">
+  </div>
+
+  <div id="divId3">
+  </div>
+
+  <script>
+    const divElement0 = document.getElementById('divId0');
+    console.log('divElement0.innerHTML:', divElement0.innerHTML)
+    console.log('divElement0.innerText:', divElement0.innerText)
+    console.log('divElement0.textContent:', divElement0.textContent)
+    console.log('------------------------')
+    const divElement1 = document.getElementById('divId1');
+    divElement1.innerHTML = '<span>Olá <b>Mundo!</b></span>'
+    console.log('divElement1.innerHTML:', divElement1.innerHTML)
+    console.log('divElement1.innerText:', divElement1.innerText)
+    console.log('divElement1.textContent:', divElement1.textContent)
+    console.log('------------------------')
+    const divElement2 = document.getElementById('divId2');
+    divElement2.textContent = '3>4';
+    console.log('divElement2.innerHTML:', divElement2.innerHTML)
+    console.log('divElement2.innerText:', divElement2.innerText)
+    console.log('divElement2.textContent:', divElement2.textContent)
+    console.log('------------------------')
+    const divElement3 = document.getElementById('divId3');
+    divElement3.textContent = '<span>Olá <b>Mundo2!</b></span>';
+    console.log('divElement3.innerHTML:', divElement3.innerHTML)
+    console.log('divElement3.innerText:', divElement3.innerText)
+    console.log('divElement3.textContent:', divElement3.textContent)
+    console.log('------------------------')
+    const createdDiv = document.createElement('div');
+    createdDiv.textContent = '<span>Olá <b>Mundo3!</b></span>';
+    console.log('createdDiv.innerHTML:', createdDiv.innerHTML)
+    console.log('createdDiv.innerText:', createdDiv.innerText)
+    console.log('createdDiv.textContent:', createdDiv.textContent)
+  </script>
+</body>
+</html>

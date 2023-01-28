@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<body>
+
+		<h2>JavaScript Errors</h2>
+
+		<p>********</p>
+		
+		<input type="datetime-local" id="dateInput" onchange="showDate(this)"/>
+		
+		<p id="demo"></p>
+		<p id="demo1"></p>
+		<p id="demo2"></p>
+
+		<script>			
+			
+			function showDate(ev){
+				try {
+					data = ev.value;//string
+					//data = ev.valueAsDate;//objetoData
+					console.log(data);
+
+					objDate = new Date(data);
+					console.log(objDate);
+					if(!(objDate instanceof Date && !isNaN(objDate))) throw "Data inválida";
+					mes = objDate.getMonth()+1;
+
+					const options = {
+						timeZone: 'America/Sao_Paulo',
+						hour: 'numeric',
+						minute: 'numeric',
+						second: 'numeric',
+						year: 'numeric',
+						month: 'numeric',
+						day: 'numeric'
+					};
+					//	fractionalSecondDigits: 0~3
+					const date = new Intl.DateTimeFormat('pt-BR', options);
+					const dateFormatted = date.format(objDate);
+					console.log(dateFormatted)
+
+					document.getElementById("demo").innerText = data;
+					document.getElementById("demo1").innerText = mes;
+					document.getElementById("demo2").innerText = dateFormatted;
+				} catch(err) {
+					//mudar no inpecionar elemento o type do input para text e entrar com valor com letras
+					document.getElementById("demo").innerText = err;	  
+					document.getElementById("demo1").innerText = err;	 
+					document.getElementById("demo2").innerText = err;
+				}
+			}
+		</script>
+
+	</body>
+</html>

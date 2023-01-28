@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <p>An unordered list:</p>
+
+  <ul>
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+  </ul>
+
+  <p>Click the button to display the innerText of the second li element (index 1).</p>
+
+  <button onclick="myFunction()">Try it</button>
+
+  <p id="demo1"></p>
+  <p id="demo2"></p>
+  <p id="demo3"></p>
+
+  <script>
+  function myFunction() {
+    var x = document.getElementsByTagName("li");//LI ou li
+    console.log(x);
+    
+    document.getElementById("demo1").innerText = x[0].innerText;
+    document.getElementById("demo2").innerText = x[1].innerText;
+    document.getElementById("demo3").innerText = x[2].innerText;
+  }
+  </script>
+
+</body>
+</html>

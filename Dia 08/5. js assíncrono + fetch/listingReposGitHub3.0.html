@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Algoritmos e Lógica de Programação</title>
+  </head>
+  <body>
+    <h2>Programando JavaScript</h2>
+    <ul id="lista"></ul>
+
+    <script>
+      async function start() {
+        try {
+          const minhaUrl = "https://api.github.com/users/ManoelPradoMark22/repos";
+          const userResponse = await fetch(minhaUrl);
+          const userRepos = await userResponse.json();
+          console.log(userRepos);
+
+          const listEl = document.getElementById('lista');
+
+          const stringHtmlItems = userRepos.map(repoObj => `
+            <li>
+              Nome: ${repoObj.name} | <a href="${repoObj.svn_url}">repoLink</a>
+            </li>
+          `).join('');
+
+          const fragment = 
+            document
+            .createRange()
+            .createContextualFragment(stringHtmlItems);
+          //mais performático que o innerHtml!! Mto mais rápido!
+          listEl.replaceChildren();//limpa o listEl
+          //listEl.innerHTML = ''; //tambem limpa p listEl
+          listEl.append(fragment);
+        }catch(err) {
+          alert('Erro na requisição! ' + err.message)
+        }
+      }
+      start();
+    </script>
+  </body>
+</html>
