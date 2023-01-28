@@ -2,5 +2,5 @@
 
 ## Tarefas feitas do curso
 
-### pratiquei, estudei os exercicios das aulas e subi para o github
-### conclui curso da rockeatseat conectar | CERTIFICA -> 
+### 1-) pratiquei, estudei os exercicios das aulas e subi para o github
+### 2-) conclui curso da rockeatseat conectar | CERTIFICA -> 
